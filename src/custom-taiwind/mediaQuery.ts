@@ -17,3 +17,5 @@ const mediaQuery = (query: string) => {
 
     return hook;
 }
+
+export default mediaQuery;

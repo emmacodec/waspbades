@@ -3,6 +3,8 @@ import {XMarkIcon, Bars3Icon} from '@heroicons/react/24/solid';
 import Logo from '@/assets/Logo.jpeg';
 import Link from "./Link";
 import { SelectedPage } from "@/Shared/type";
+import mediaQuery from "@/custom-taiwind/mediaQuery";
+import Buttons from "@/Shared/buttons";
 
 
 type Props = {
@@ -14,6 +16,11 @@ type Props = {
 const Navbar = ({selectedPage, setSelectedPage}: Props) => {
 
   const flexbetween = "flex items-center justify-between";
+
+const useMediaQuey = mediaQuery("(min-width: 1060px)");
+
+const [menuToggle, setToggleMenu] = useState<boolean>(false);
+
   return <nav>
     <div className={`${flexbetween} fixed top-0 z-30 w-full py-6`}>
 
@@ -24,7 +31,7 @@ const Navbar = ({selectedPage, setSelectedPage}: Props) => {
           <img src={Logo} alt="logo" width={50} height={50} />
 
           {/*right-side*/}
-          <div className={`${flexbetween} w-full`}>
+           {useMediaQuey ? (<div className={`${flexbetween} w-full`}>
 
             <div className={`${flexbetween} gap-8 text-sm`}>
               <Link page="Home" selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
@@ -34,9 +41,16 @@ const Navbar = ({selectedPage, setSelectedPage}: Props) => {
             </div>
             <div className={`${flexbetween} gap-8`}>
               <p>Sign-In</p>
-              <button>Enroll Today</button>
+              <Buttons setSelectedPage={setSelectedPage}>Enroll Now</Buttons>
+              
             </div>
           </div>
+           ) : (
+
+            <button className="rounded-full  bg-secondary-500 p-2" onClick={() => setToggleMenu(menuToggle)}>
+              <Bars3Icon className="h-6 w-6 text-white" />
+            </button>
+           )}
         </div>
       </div>
     </div>

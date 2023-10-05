@@ -47,13 +47,35 @@ const [menuToggle, setToggleMenu] = useState<boolean>(false);
           </div>
            ) : (
 
-            <button className="rounded-full  bg-secondary-500 p-2" onClick={() => setToggleMenu(menuToggle)}>
+            <button className="rounded-full  bg-secondary-500 p-2" onClick={() => setToggleMenu(!menuToggle)}>
               <Bars3Icon className="h-6 w-6 text-white" />
             </button>
            )}
         </div>
       </div>
     </div>
+
+    {/*Mobile-menu*/}
+    {!useMediaQuey && menuToggle && (
+      <div className="fixed right-0 bottom-0 z-40 h-full w-[300px] bg-primary-100 drop-shadow-xl">
+
+
+        {/*close*/}
+        <div className="flex justify-end p-12">
+          <button onClick={() => setToggleMenu(!menuToggle)}>
+            <XMarkIcon className="h-6 w-6 text-gray-400" />
+          </button>
+        </div>
+
+        {/*items*/}
+        <div className="ml-[33%] flex flex-col gap-10 text-2xl">
+              <Link page="Home" selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
+              <Link page="Benefits" selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
+              <Link page="Varieties" selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
+              <Link page="Enroll Now" selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
+            </div>
+      </div>
+    )}
   </nav>;
     
   

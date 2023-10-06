@@ -10,10 +10,11 @@ import Buttons from "@/Shared/buttons";
 type Props = {
   selectedPage: SelectedPage;
     setSelectedPage: (value: SelectedPage) => void;
+    topPage: boolean;
 }
 
 
-const Navbar = ({selectedPage, setSelectedPage}: Props) => {
+const Navbar = ({topPage, selectedPage, setSelectedPage}: Props) => {
 
   const flexbetween = "flex items-center justify-between";
 
@@ -21,8 +22,11 @@ const useMediaQuey = mediaQuery("(min-width: 1060px)");
 
 const [menuToggle, setToggleMenu] = useState<boolean>(false);
 
-  return <nav>
-    <div className={`${flexbetween} fixed top-0 z-30 w-full py-6`}>
+const navBackground = topPage ? '' : 'bg-primary-100 drop-shadow';
+
+  return (
+  <nav>
+    <div className={`${navBackground} ${flexbetween} fixed top-0 z-30 w-full py-6`}>
 
       <div className={`${flexbetween} mx-auto w-5/6`}>
 
@@ -33,7 +37,7 @@ const [menuToggle, setToggleMenu] = useState<boolean>(false);
           {/*right-side*/}
            {useMediaQuey ? (<div className={`${flexbetween} w-full`}>
 
-            <div className={`${flexbetween} gap-8 text-sm`}>
+            <div className={`${flexbetween} gap-8 text-sm tracking-widest uppercase`}>
               <Link page="Home" selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
               <Link page="Benefits" selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
               <Link page="Varieties" selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
@@ -68,7 +72,7 @@ const [menuToggle, setToggleMenu] = useState<boolean>(false);
         </div>
 
         {/*items*/}
-        <div className="ml-[33%] flex flex-col gap-10 text-2xl">
+        <div className="ml-[33%] flex flex-col gap-10 text-xl tracking-widest">
               <Link page="Home" selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
               <Link page="Benefits" selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
               <Link page="Varieties" selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
@@ -76,7 +80,8 @@ const [menuToggle, setToggleMenu] = useState<boolean>(false);
             </div>
       </div>
     )}
-  </nav>;
+  </nav>
+  );
     
   
 }

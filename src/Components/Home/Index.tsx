@@ -7,6 +7,8 @@ import Heineken from '@/assets/heineken.jpeg';
 import Bull from '@/assets/bull.jpeg';
 import Versache from '@/assets/versache.jpeg';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
+import { motion } from 'framer-motion';
+
 
 type Props = {
     setSelectedPage: (value: SelectedPage) => void;
@@ -23,7 +25,14 @@ const Home = ({setSelectedPage}: Props) => {
         {/*header*/}
         <div className='z-10 mt-32 md:basis-3/5'>
           {/*heading*/}
-          <div className='md:-mt-20'>
+          <motion.div 
+          className='md:-mt-20' 
+          initial="hidden" 
+          whileInView='visible' 
+          viewport={{once:true, amount:0.5}} 
+          transition={{duration: 2}}
+          variants={{hidden:{opacity: 0, x: -100}, visible:{opacity: 1, x: 0},}}
+          >
             <div className='relative'>
               <div className='before:absolute before:-top-20 before:-left-20 before:z-[-1] md:before:content-evolvetext'>
                 <h1 className='text-7xl font-bold tracking-widest uppercase text-gray-500'>Fitness</h1>
@@ -31,7 +40,7 @@ const Home = ({setSelectedPage}: Props) => {
             </div>
 
             <p className='mt-8 text-sm'>Come and experience world class Gym with world class facilities, well trained gym-instructors, relaxation center, bar and restaurant. We also provide home training as well with our top-notch equipments for effective training.</p>
-          </div>
+          </motion.div>
 
           {/*buttons*/}
           <div className='mt-8 flex items-center gap-8'>

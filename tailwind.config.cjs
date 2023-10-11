@@ -27,7 +27,7 @@ export default {
       },
       content: {
         evolvetext: "url('')",
-        abstractwaves: "url('')",
+        abstractwaves: "url('./assets/fitness8.jpg')",
         sparkles: "url('')",
         circles: "url('')",
       }

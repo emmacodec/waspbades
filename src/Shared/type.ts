@@ -4,3 +4,9 @@ export enum SelectedPage {
     Varieties = 'varieties',
     EnrollNow = 'enroll now',
   }
+
+  export interface BenefitType {
+    icon: JSX.Element;
+    title: string;
+    description: string;
+  }

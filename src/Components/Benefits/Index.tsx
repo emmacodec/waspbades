@@ -73,7 +73,16 @@ const Benefits = ({setSelectedPage}: Props) => {
               <img className="mx-auto" alt="benefit-page-graphics" src={fitness} width={250} height={250} />
 
               {/*description*/}
-              <div>
+              <motion.div
+               initial= "hidden"
+               whileInView= "visible"
+               viewport={{once: true, amount: 0.5}}
+               transition={{delay: 0.2, duration: 0.5}}
+               variants={{
+                hidden: {opacity: 0, x: 50},
+                visible: {opacity: 1, x: 0},
+               }}
+              >
                {/*title*/}
                   <div className="relative">
                     <div className="before:absolute before:-top-20 before:-left-20 before:z-[1] before:content-">
@@ -92,7 +101,7 @@ const Benefits = ({setSelectedPage}: Props) => {
                     Enroll Now..!
                   </Buttons>
                 </div>
-              </div>
+              </motion.div>
             </div>
         </motion.div>
     </section>

@@ -10,3 +10,9 @@ export enum SelectedPage {
     title: string;
     description: string;
   }
+
+  export interface VarietyType {
+    name: string;
+    description: string;
+    image: string;
+  }

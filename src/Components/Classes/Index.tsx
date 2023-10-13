@@ -1,5 +1,5 @@
 import Text from "@/Shared/Text";
-import { SelectedPage } from "@/Shared/type";
+import { SelectedPage, VarietyType } from "@/Shared/type";
 import Fitness1 from "@/assets/Fitness1.jpeg";
 import Fitness2 from "@/assets/Fitness2.jpg";
 import Fitness3 from '@/assets/Fitness3.jpg';
@@ -8,10 +8,11 @@ import Fitness5 from '@/assets/Fitness5.jpeg';
 import Fitness6 from '@/assets/Fitness6.webp';
 import Fitness7 from '@/assets/Fitness7.jpeg';
 import { motion } from "framer-motion";
+import Variety from "./Variety";
 
 
 
-const classes = [
+const classes: Array<VarietyType> = [
     {
         name: "Weight Training Classes",
         description: "We offer world class weight training tutorials to keep your body fit and boost your muscles.",
@@ -82,10 +83,15 @@ const Classes = ({setSelectedPage}: Props) => {
             </motion.div>
 
             {/*side-scroller*/}
-            <div className="mt-10 h-[400px] w-full overflow-x-auto overflow-y-hidden">
+            <div className="mt-10 h-[350px] w-full overflow-x-auto overflow-y-hidden">
                 <ul className="w-[2800px] whitespace-nowrap">
-                    {classes.map((item, index) => (
-                        <Variety />
+                    {classes.map((item, VarietyType, index) => (
+                        <Variety 
+                        key={`${item.name}-${index}`}
+                        name={item.name}
+                        description={item.description}
+                        image={item.image}
+                        />
                     ))}
                 </ul>
             </div>

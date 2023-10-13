@@ -4,6 +4,7 @@ import { SelectedPage } from "@/Shared/type"
 import Home from "@/Components/Home/Index";
 import Benefits from "@/Components/Benefits/Index";
 import Classes from "@/Components/Classes/Index";
+import Enroll from "@/Components/Enroll/Index";
 
 
 
@@ -34,6 +35,7 @@ function App() {
      <Home setSelectedPage={setSelectedPage}/>
      <Benefits setSelectedPage={setSelectedPage} />
      <Classes setSelectedPage={setSelectedPage} />
+     <Enroll setSelectedPage={setSelectedPage} />
     </div>
   )
 }

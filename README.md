@@ -1,3 +1,5 @@
 Built and deploy a complete TypeScript fitness Application. I used React, Typescript, Vite, Tailwind, Hero Icons, Framer Motion, Form Submit, React Anchor Link Smooth Scroll. Also deploy my fitness app using cloudflare pages.
 installed dev dependencies as well that will all go away when i run npm build. installed @types that allows typescript identify the types in all the dependencies installed. Also installed @types/node for the paths merger
 prettier extension install plugin to vite plugin tailwind allows prettier to have tailwind configurations or format tailwind classes in a particular order.
+Also used react-hook-form as well basically for input form mostly use alongside with tailwind and basic html semantics.
+trigger from useForm hooks helps us to validate our form. Used the formsubmit.co API fro form submission

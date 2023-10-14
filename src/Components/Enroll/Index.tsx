@@ -2,6 +2,7 @@ import Text from "@/Shared/Text";
 import { SelectedPage } from "@/Shared/type";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
+import Fitness4 from '@/assets/Fitness4.jpeg';
 
 type Props = {
     setSelectedPage: (value: SelectedPage) => void;
@@ -22,10 +23,10 @@ const handleSubmit = async (e: any) => {
     }
 }
 
-const styles = `w-full rounded-lg bg-primary-300 px-5 py-3 placeholder:text-white mt-5`
+const styles = `w-full rounded-lg bg-primary-300 px-5 py-3 placeholder:text-white mb-5`
 
   return (
-    <section id="enroll" className="mx-auto w-5/6 pt-24 pb-32">
+    <section id="enroll now" className="mx-auto w-5/6 pt-24 pb-32">
         <motion.div 
         onViewportEnter={() => setSelectedPage(SelectedPage.EnrollNow)}
         >
@@ -116,6 +117,23 @@ const styles = `w-full rounded-lg bg-primary-300 px-5 py-3 placeholder:text-whit
                             Submit
                         </button>
                     </form>
+                </motion.div>
+
+                {/*image*/}
+                <motion.div 
+                  initial="hidden" 
+                  whileInView='visible' 
+                  viewport={{once:true, amount:0.5}} 
+                  transition={{delay: 0.2, duration: 2}}
+                  variants={{hidden:{opacity: 0, y: 50}, visible:{opacity: 1, y: 0},}}
+                className="relative mt-16 basis-2/5  md:mt-0"
+                >
+                    <div className="md:before:content w-full absolute before:-bottom-20 before:-right-10 before:z-[1]">
+                        <img 
+                        alt="enroll now"
+                        src={Fitness4}
+                        className="w-full" />
+                    </div>
                 </motion.div>
             </div>
         </motion.div>
